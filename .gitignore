@@ -9,4 +9,6 @@ out/
 atlassian-ide-plugin.xml
 
 target/
+screenshots/
 *.iml
+TEST-all.xml

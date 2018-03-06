@@ -26,6 +26,11 @@ public class HelloKittySteps extends BaseTest {
 
     @Then("^I see \"([^\"]*)\"$")
     public void I_see(String text) {
-        Assert.assertEquals(helloKittyPage.getCaption(), text);
+        Assert.assertEquals(text, helloKittyPage.getCaption());
+    }
+
+    @When("^I press the button$")
+    public void I_press_the_button() throws Throwable {
+        helloKittyPage.clickButton();
     }
 }

@@ -3,10 +3,11 @@ Feature: HelloKitty test
   @Positive @Sanity
   Scenario: read primary text from text area
     Given I am on HelloKitty application main page
-    Then I see "hello world!"
+    Then I see "Large Text"
 
-  @Positive
+  @Positive @Sanity
   Scenario: put the text, click the button, get text "hello [entered text]"
     Given I am on HelloKitty application main page
-    When I type "Andrey"
-    Then I see "hello Andrey!"
+    And I type "Andrey"
+    When I press the button
+    Then I see "Hello, Andrey"

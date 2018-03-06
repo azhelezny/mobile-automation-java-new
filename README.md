@@ -52,7 +52,11 @@ to make long story short:
 
 start Node.js command prompt and execute next command (Warning - command execution is long ~ 10 minutes):
 
-**npm install -g appium**
+**sudo npm install -g appium**
+
+in some cases (on Mac) you can use the next command
+
+**sudo npm install -g appium --unsafe-perm=true --allow-root**
 
 to start appium with predefined desired capabilities use next command syntax:
 

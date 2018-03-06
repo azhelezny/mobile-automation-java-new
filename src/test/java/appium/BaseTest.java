@@ -37,9 +37,6 @@ public class BaseTest {
             capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Settings.get().deviceName());
             capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
             capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
-
-            CommandLineUtils.executeCommandLineCommandLocally("adb uninstall io.appium.settings",false);
-            CommandLineUtils.executeCommandLineCommandLocally("adb uninstall io.appium.unlock",false);
         } else {
             //battle mode
             //TODO add code after understanding of work scope
