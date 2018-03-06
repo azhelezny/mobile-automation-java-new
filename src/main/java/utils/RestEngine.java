@@ -1,20 +1,29 @@
 package utils;
 
 import com.squareup.okhttp.*;
+import com.squareup.okhttp.internal.http.AuthenticatorAdapter;
 import enums.RestMethod;
 import rest.RestRequestStructure;
 import rest.RestResponseStructure;
 
 import java.io.IOException;
+import java.net.Proxy;
 import java.util.Map;
 
 /**
  * class with static methods to interact with REST API of client application
  */
 public class RestEngine {
-    private static OkHttpClient httpClient = new OkHttpClient();
+    private OkHttpClient httpClient = new OkHttpClient();
+    private String userName = null;
+    private String userPwd = null;
 
-    public static RestResponseStructure sendRequest(RestRequestStructure request) throws IOException {
+    public void setBasicAuthentication(String username, String password) {
+        this.userName = username;
+        this.userPwd = password;
+    }
+
+    public RestResponseStructure sendRequest(RestRequestStructure request) throws IOException {
         RequestBody requestBody = null;
         if (!request.getMethod().equals(RestMethod.GET)) {
             requestBody = RequestBody.create(MediaType.parse(request.getContentType()),
@@ -35,7 +44,7 @@ public class RestEngine {
 
         for (String headerName : httpResponse.headers().names())
             response.setHeader(headerName, httpResponse.header(headerName));
-        
+
         return response;
     }
 }

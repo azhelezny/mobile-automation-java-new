@@ -7,7 +7,22 @@ public class Settings {
     private String platformName = System.getenv("PLATFORM_NAME");
     private String platformVersion = System.getenv("PLATFORM_VERSION");
     private String deviceName = System.getenv("DEVICE_NAME");
-    private String executionType = System.getProperty("executionType");
+
+    // testDroid settings
+    // user and password can be added to desiredCapabilities using keys testdroid_username and testdroid_password
+    private String testDroidUser = System.getenv("TESTDROID_USERNAME");
+    private String testDroidPwd = System.getenv("TESTDROID_PASSWORD");
+    private String testDroidAppLocation = System.getenv("TESTDROID_PASSWORD");//?
+    private String testDroidTargetAppPath = System.getenv("TARGET_APP_PATH");
+
+    private String testDroidapiKey = System.getProperty("apiKey");
+    private String testDroidExecutionType = System.getProperty("executionType");
+    private String testDroidApplicationPath = System.getProperty("ApplicationPath");
+    private String testDroidExportResults = System.getProperty("exportResults");
+
+    public static final String TESTDROID_SERVER = "http://appium.testdroid.com";
+    public static final String TESTDROID_UPLOAD_URL = TESTDROID_SERVER + "/upload";
+
 
     private static Settings settings = null;
 
@@ -24,7 +39,7 @@ public class Settings {
         if (platformName == null) platformName = "Android";
         if (platformVersion == null) platformVersion = "";
         if (deviceName == null) deviceName = "Android Device";
-        if (executionType == null) executionType = "clientside";
+        if (testDroidExecutionType == null) testDroidExecutionType = "clientside";
     }
 
     public static Settings get() {
@@ -50,7 +65,14 @@ public class Settings {
     }
 
     public String executionType() {
-        return this.executionType;
+        return this.testDroidExecutionType;
     }
 
+    public String testDroidUser() {
+        return testDroidUser;
+    }
+
+    public String testDroidPwd() {
+        return testDroidPwd;
+    }
 }

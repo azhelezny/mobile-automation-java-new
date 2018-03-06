@@ -13,7 +13,7 @@
         <executionType>clientside</executionType>
         <apiKey>DEFAULT</apiKey>
         <applicationPath>DEFAULT</applicationPath>
-        <exportResults>DEFAULT</exportResults>
+        <exportResults>false</exportResults>
     </properties>
 
     <build>

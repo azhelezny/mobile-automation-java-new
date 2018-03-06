@@ -15,9 +15,6 @@ public class RestRequestStructure {
     private String contentType = "application/json; charset=utf-8";
     private String body;
 
-    public RestRequestStructure() {
-    }
-
     public RestRequestStructure(String url, RestMethod method) {
         this.url = url;
         this.method = method;
@@ -56,7 +53,8 @@ public class RestRequestStructure {
     }
 
     public RestResponseStructure executeBasic() throws IOException {
-        return RestEngine.sendRequest(this);
+        RestEngine engine = new RestEngine();
+        return engine.sendRequest(this);
     }
 
     public String getReportMessageHeader() {
