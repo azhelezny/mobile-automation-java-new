@@ -1,9 +1,11 @@
 package rest;
 
 import enums.RestMethod;
+import properties.Settings;
 import utils.RestEngine;
 
 import java.io.IOException;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +24,11 @@ public class RestRequestStructure {
 
     public void setContentType(String contentType) {
         this.contentType = contentType;
+    }
+
+    public void applyBasicAuthenticatioin(String userName, String userPwd) {
+        byte[] bytesToEncode = ("Basic " + userName + ":" + userPwd).getBytes();
+        putHeader("Authentication", Base64.getEncoder().encodeToString(bytesToEncode));
     }
 
     public String getContentType() {

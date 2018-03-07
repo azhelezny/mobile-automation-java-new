@@ -15,7 +15,7 @@ public class Settings {
     private String testDroidAppLocation = System.getenv("TESTDROID_PASSWORD");//?
     private String testDroidTargetAppPath = System.getenv("TARGET_APP_PATH");
 
-    private String testDroidapiKey = System.getProperty("apiKey");
+    private String testDroidApiKey = System.getProperty("apiKey");
     private String testDroidExecutionType = System.getProperty("executionType");
     private String testDroidApplicationPath = System.getProperty("ApplicationPath");
     private String testDroidExportResults = System.getProperty("exportResults");
@@ -74,5 +74,9 @@ public class Settings {
 
     public String testDroidPwd() {
         return testDroidPwd;
+    }
+
+    public String getTestDroidApiKey() {
+        return testDroidApiKey;
     }
 }

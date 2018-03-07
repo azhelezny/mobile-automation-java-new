@@ -1,10 +1,12 @@
 package rest.presets;
 
+import com.google.api.client.http.FileContent;
+import com.testdroid.api.http.MultipartFormDataContent;
 import enums.RestMethod;
 import properties.Settings;
 import rest.RestRequestStructure;
 
-import java.util.Base64;
+import java.io.File;
 
 /**
  * @author Andrey Zhelezny
@@ -12,11 +14,11 @@ import java.util.Base64;
  */
 public class PishRequest extends RestRequestStructure {
 
-    public PishRequest(String url, RestMethod method) {
-        super(url, method);
-        String userName = Settings.get().testDroidUser();
-        String userPwd = Settings.get().testDroidPwd();
-        byte[] bytesToEncode = ("Basic " + userName + ":" + userPwd).getBytes();
-        putHeader("Authentication", Base64.getEncoder().encodeToString(bytesToEncode));
+    public PishRequest(String filePath) {
+        super(Settings.TESTDROID_UPLOAD_URL, RestMethod.POST);
+        applyBasicAuthenticatioin(Settings.get().testDroidUser(), Settings.get().testDroidPwd());
+        MultipartFormDataContent multipartContent = new MultipartFormDataContent();
+        FileContent fileContent = new FileContent("application/octet-stream", new File(filePath));
+
     }
 }

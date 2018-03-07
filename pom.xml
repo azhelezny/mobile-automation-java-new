@@ -10,6 +10,7 @@
 
     <properties>
         <cucumber.version>1.2.5</cucumber.version>
+        <jackson.version>2.9.0</jackson.version>
         <executionType>clientside</executionType>
         <apiKey>DEFAULT</apiKey>
         <applicationPath>DEFAULT</applicationPath>
@@ -81,6 +82,31 @@
             <artifactId>cucumber-picocontainer</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.testdroid</groupId>
+            <artifactId>testdroid-api</artifactId>
+            <version>2.28</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.http-client</groupId>
+            <artifactId>google-http-client-jackson2</artifactId>
+            <version>1.22.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
